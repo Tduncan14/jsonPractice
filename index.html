@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learn JSON</h1>
+
+    <div id="output">
+        <ul id="taskList">
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+    var data =`[{"info":"cut grass","status": false},
+        {"info":"clean room","status": false},
+        {"info":"gotoGym","status": false},
+        {"info":"MakeDinner","status": false}]`
+    
+
+
+
+      var dataJSON = JSON.parse(data);
+
+      console.log(dataJSON);
+
+
+      var output = document.getElementById('output');
+
+      var taskList = document.querySelector('#taskList');
+
+      for(var key in dataJSON){
+
+       console.log(key, dataJSON[key])
+
+      }
+
+
+    </script>
+</body>
+</html>
