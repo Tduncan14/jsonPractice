@@ -18,7 +18,21 @@
         var output = document.getElementById('output');
         var taskList = document.querySelector('#taskList');
 
-        document.getElementById('myForm').addEventListener('submit',addTask);
+        document.getElementById('myForm').addEventListener('submit',function(e){
+
+         e.preventDefault();
+
+         var tempValue = document.querySelector('input[name = task]').value;
+
+
+
+
+         dataJSON.push({"info":tempValue,"status":false});
+
+         console.log(dataJSON);
+             
+
+        });
 
 
         window.onload = function () {
@@ -50,27 +64,31 @@
             dataJSON[key].status = event.target.checked
         }
         
-        function addTask(e){
-            let object = {}
-          e.preventDefault();
+        // function addTask(e){
+        //     let object = {}
+        //   e.preventDefault();
 
-          var temp = document.querySelector('input[name="task"]').value
+        //   var temp = document.querySelector('input[name="task"]').value
 
-          console.log(temp);
+        //   console.log(temp);
 
-          object.info = temp;
-          object.status = false;
+        //   object.info = temp;
+        //   object.status = false;
 
-         dataJSON.push(object)
+        //  dataJSON.push(object)
 
-         console.log(dataJSON);
+        //  console.log(dataJSON);
   
 
-         temp = document.querySelector('input[name="task"]').value = '';
+        //  temp = document.querySelector('input[name="task"]').value = '';
 
-         taskList.innerHTML += '<li>' + object.info + ' <input type="checkbox" value="' + object.status + '"></li>';
+        //  taskList.innerHTML += '<li>' + object.info + ' <input type="checkbox" value="' + object.status + '"></li>';
 
-        }
+        // }
+
+         function addNewItem(item){
+             
+         }
     </script>
 </body>
 </html>
