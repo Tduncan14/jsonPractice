@@ -73,6 +73,16 @@
              var createText = document.createTextNode(data.info);
 
            
+              var x = document.createTextNode('x');
+           // creating a span
+
+            var span = document.createElement('span');
+           // alternative way
+           // span.innerHTML = 'x';
+            span.appendChild(x);
+
+            span.onclick = remove;
+
              // adding the checkbox type
             checkbox.type ='checkbox';
             // adding the checkbox value
@@ -86,7 +96,7 @@
          // appends the checkbox to the list
             li.appendChild(createText);
             li.appendChild(checkbox);
-            
+            li.appendChild(span);
             document.querySelector('#taskList').appendChild(li);
      
 
@@ -138,6 +148,15 @@
              sessionStorage["task"] = JSON.stringify(dataJSON);
 
          }
+
+         function remove(event){
+           console.log(event);
+           var index = this.previousElementSibling.value;
+           taskList.innerHTML = '';
+           dataJSON.splice(index,1)
+           buildCheckboxes(dataJSON);
+         }
+
 
 
     </script>
